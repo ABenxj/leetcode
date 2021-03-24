@@ -30,6 +30,7 @@ s由英文字母、数字、符号和空格组成
 
 """
 
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
