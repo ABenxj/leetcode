@@ -62,3 +62,14 @@ class Solution:
             "8": "tuv",
             "9": "wxyz",
         }
+
+        ans = []
+
+        def backtrace(cur_str, nums):
+            if not nums:
+                ans.append(cur_str)
+                return None
+            for s in phoneMap[nums[0]]:
+                backtrace(cur_str+s, nums[1:])
+        backtrace('', digits)
+        return ans
