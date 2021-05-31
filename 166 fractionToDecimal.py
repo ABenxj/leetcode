@@ -23,7 +23,8 @@ class Solution:
         sign = '-' if numerator*denominator < 0 else ''
         numerator, denominator = abs(numerator), abs(denominator)
         div, mod = divmod(numerator, denominator)
-        if mod == 0: return sign + str(div)
+        if mod == 0:
+            return sign + str(div)
         mods = {}
         ans, index = [], 0
         while mod not in mods:
