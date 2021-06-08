@@ -1,0 +1,54 @@
+经营办公室
+一面：
+    1、自我介绍
+    2、项目介绍
+    3、集成学习，bagging，stacking的方法介绍；
+    4、装饰器：classmethod 和 staticmethod
+    5、word2vec和doc2vec的区别， word2vec的介绍；
+    6、深度学习如何防止过拟合？
+    7、dropout的原理过程；
+    8、m*m的图片，卷积之后的大小是多少？
+    9、sql题：
+        表a， id, name, salary, departmentid； 表b, id, name;求每个部门工资最高的员工， 部门名字，员工名字， 工资
+        求解思路:
+            select b.name as department_name, a.name as name, salary
+            from a
+            join b on a.departmentid = b.id
+            where (a.departmentid, a.salary) in
+            (select departmentid, max(salary) from a group by departmentid);
+        窗口函数:
+            rank dense_rank row_number
+    10、编程题：二分法求平方根
+        import math
+
+        def findsquare(n):
+            """
+
+            :param n:
+            :return:
+            """
+            if n == 1:
+                return 1
+            left, right = 0, n
+            while abs(left-right) > 0.001:
+                mid = (left+right)/2
+                if mid*mid == n:
+                    return mid
+                elif mid*mid < n:
+                    left = mid
+                else:
+                    right = mid
+            return math.floor(left*100)/100
+
+
+        def find_1(l, r, n):
+            if abs(l-r) < 0.001:
+                return math.floor(l*100)/100
+            mid = (l + r) / 2
+            if mid * mid == n:
+                return mid
+            elif mid * mid < n:
+                l = mid
+            else:
+                r = mid
+            return find_1(l, r, n)
